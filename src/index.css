@@ -1,7 +1,7 @@
 /* 
 FONTS
 */
-@import url('https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Beginner:wght@400;600&family=Open+Sans:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Beginner:wght@400;600&family=Josefin+Sans:ital,wght@0,400;1,600&display=swap');
 
 /* 
 RESETTING
@@ -25,10 +25,9 @@ VARIABLES
   --transition: all 0.3s linear;
   --radius: 10px;
   --spacing: 0.1rem;
-  --secondary-font: 'Edu VIC WA NT Beginner', cursive;
-  --primary-font: 'Open Sans', sans-serif;
+  --primary-font: 'Dancing Script', cursive;
+  --secondary-font: 'Josefin Sans', sans-serif;
 }
-
 /* GLOBALS */
 
 body {
@@ -70,6 +69,7 @@ ul {
   list-style: none;
 }
 a {
+  color: #000;
   text-decoration: none;
 }
 
@@ -87,4 +87,37 @@ a {
     rgba(203, 35, 118, 1) 100%
   );
   color: #fff;
+}
+
+.section-center {
+  width: min(90vw, 1200px);
+  margin: 0 auto;
+}
+
+.page-full {
+  min-height: calc(100vh - 8rem);
+}
+
+/* FORMS */
+form {
+  text-align: center;
+}
+select {
+  width: 100%;
+  max-width: 25rem;
+  height: 2rem;
+  background-color: #192155;
+  border: none;
+  color: #fff;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+/* option {
+  font-size: 1.1rem;
+} */
+.battle-img {
+  max-height: 30rem;
+  max-width: 30rem;
+  object-fit: cover;
+  margin: 0 auto;
 }

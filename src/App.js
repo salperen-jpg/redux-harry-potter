@@ -8,6 +8,7 @@ import Students from './pages/Students';
 import Staff from './pages/Staff';
 import SharedLayout from './pages/SharedLayout';
 import Characters from './pages/Characters';
+import Battle from './pages/Battle';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route index element={<Characters />} />
           <Route path='staffs' element={<Staff />} />
           <Route path='students' element={<Students />} />
+          <Route path='battle' element={<Battle />} />
         </Route>
       </Routes>
     </BrowserRouter>

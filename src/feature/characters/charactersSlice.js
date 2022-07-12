@@ -20,7 +20,6 @@ const characterSlice = createSlice({
       state.isLoading = true;
     },
     [getCharacters.fulfilled]: (state, action) => {
-      console.log(action.payload);
       state.isLoading = false;
       state.characters = action.payload;
     },
