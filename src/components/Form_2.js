@@ -21,7 +21,7 @@ const Form_2 = () => {
           }}
         >
           <option disabled value='select value'>
-            Select value
+            Select wizard
           </option>
           {characters.map((char, index) => {
             return (

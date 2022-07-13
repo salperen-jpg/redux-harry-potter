@@ -4,9 +4,7 @@ import { setWizard_1 } from '../feature/battle/battleSlice';
 
 const Form_1 = () => {
   const dispatch = useDispatch();
-  const { wizard_1, isLoading_1, characters } = useSelector(
-    (store) => store.battle
-  );
+  const { wizard_1, characters } = useSelector((store) => store.battle);
 
   return (
     <div>
@@ -22,7 +20,7 @@ const Form_1 = () => {
           }}
         >
           <option disabled value='select value'>
-            Select value
+            Select wizard
           </option>
           {characters.map((char, index) => {
             return (

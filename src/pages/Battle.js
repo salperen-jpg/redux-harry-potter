@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Forms from '../components/Forms';
+import Modal from '../components/Modal';
 import { getAllChars } from '../feature/battle/battleSlice';
 
 const Battle = () => {
@@ -11,6 +12,7 @@ const Battle = () => {
   return (
     <div>
       <Forms />
+      <Modal />
     </div>
   );
 };

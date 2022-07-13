@@ -2,13 +2,11 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { getCharacters } from '../characters/charactersSlice';
 const initialState = {
   characters: [],
-  isLoading: true,
-  isLoading_1: false,
-  isLoading_2: false,
-  wizard_1: {},
-  wizard_2: {},
-  winner: {},
-  loser: {},
+  wizard_1: '',
+  wizard_2: '',
+  winner: '',
+  loser: '',
+  isModalOpen: false,
 };
 
 export const getAllChars = createAsyncThunk(
@@ -35,6 +33,21 @@ const battleSlice = createSlice({
       const single = state.characters.find((char) => char.name === payload);
       state.wizard_2 = single;
     },
+    openModal: (state) => {
+      const randomNumber = Math.floor(Math.random() * 2);
+      if (randomNumber === 0) {
+        state.winner = state.wizard_1;
+        state.loser = state.wizard_2;
+      } else {
+        state.winner = state.wizard_2;
+        state.loser = state.wizard_1;
+      }
+      console.log(randomNumber);
+      state.isModalOpen = true;
+    },
+    closeModal: (state) => {
+      state.isModalOpen = false;
+    },
   },
   extraReducers: {
     [getAllChars.pending]: (state) => {
@@ -47,5 +60,6 @@ const battleSlice = createSlice({
     [getAllChars.rejected]: (state) => {},
   },
 });
-export const { setWizard_1, setWizard_2 } = battleSlice.actions;
+export const { setWizard_1, setWizard_2, openModal, closeModal } =
+  battleSlice.actions;
 export default battleSlice.reducer;
