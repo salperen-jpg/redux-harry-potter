@@ -26,11 +26,11 @@ const Character = ({
       <div className='info'>
         <div>
           <span>Actor : </span>
-          <span>{actor}</span>
+          <span className='att'>{actor}</span>
         </div>
         <div>
           <span> Wood : </span>
-          <span>{wood || 'Unknown'}</span>
+          <span className='att'>{wood || 'Unknown'}</span>
         </div>
         <div>
           <span>House : </span>
@@ -46,7 +46,7 @@ const Character = ({
 
 const Wrapper = styled.article`
   position: relative;
-  color: #fff;
+  color: #102a42;
 
   .image-container {
     position: relative;
@@ -69,10 +69,17 @@ const Wrapper = styled.article`
   }
   .info {
     padding: 1rem 1rem;
+    div > span {
+      color: red;
+      text-transform: capitalize;
+    }
     div {
       margin-bottom: 0.5rem;
       display: grid;
       grid-template-columns: 1fr 2fr;
+    }
+    .att {
+      color: #102a42;
     }
   }
   .icon {

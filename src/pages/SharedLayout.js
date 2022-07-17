@@ -15,6 +15,7 @@ const SharedLayout = () => {
 const Wrapper = styled.main`
   min-height: 100vh;
   background: url(${main}) center/cover no-repeat;
+  background: #dce1e6;
 `;
 
 export default SharedLayout;
