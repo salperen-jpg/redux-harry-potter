@@ -7,6 +7,7 @@ const defaultImage =
   'https://img.freepik.com/premium-vector/old-wizard-esport-logo-illustration_224764-37.jpg?w=2000';
 
 const Character = ({
+  modal,
   image,
   name,
   patronus,
@@ -28,17 +29,22 @@ const Character = ({
           <span>Actor : </span>
           <span className='att'>{actor}</span>
         </div>
-        <div>
-          <span> Wood : </span>
-          <span className='att'>{wood || 'Unknown'}</span>
-        </div>
-        <div>
-          <span>House : </span>
-          <span>
-            <span className={`box ${house}`}></span>
-          </span>
-        </div>
-        <button className='btn detail'>learn more</button>
+        {!modal && (
+          <>
+            {' '}
+            <div>
+              <span> Wood : </span>
+              <span className='att'>{wood || 'Unknown'}</span>
+            </div>
+            <div>
+              <span>House : </span>
+              <span>
+                <span className={`box ${house}`}></span>
+              </span>
+            </div>
+            <button className='btn detail'>learn more</button>{' '}
+          </>
+        )}
       </div>
     </Wrapper>
   );

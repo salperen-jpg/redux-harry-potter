@@ -107,9 +107,9 @@ select {
   width: 100%;
   max-width: 25rem;
   height: 2rem;
-  background-color: #192155;
+  background-color: #cfcfcf;
   border: none;
-  color: #fff;
+  color: #192155;
   font-size: 1.1rem;
   margin-bottom: 2rem;
 }
