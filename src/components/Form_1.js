@@ -12,14 +12,14 @@ const Form_1 = () => {
       <form>
         <select
           name='wizard_1'
-          defaultValue={'select value'}
+          defaultValue={'select wizard'}
           value={wizard_1.name}
           id='wizard_1'
           onChange={(e) => {
             dispatch(setWizard_1(e.target.value));
           }}
         >
-          <option disabled value='select value'>
+          <option disabled value='select wizard'>
             Select wizard
           </option>
           {characters.map((char, index) => {

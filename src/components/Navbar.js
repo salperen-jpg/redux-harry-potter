@@ -62,6 +62,7 @@ const Wrapper = styled.nav`
       gap: 0.5rem;
     }
   }
+
   .active {
     color: pink;
   }

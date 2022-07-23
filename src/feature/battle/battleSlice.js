@@ -1,5 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { removeWizard } from '../../utils/helpers';
 import { getCharacters } from '../characters/charactersSlice';
+
 const initialState = {
   characters: [],
   wizard_1: '',
@@ -27,11 +29,19 @@ const battleSlice = createSlice({
   reducers: {
     setWizard_1: (state, { payload }) => {
       const single = state.characters.find((char) => char.name === payload);
+      const removeSelectedWizard = state.characters.filter(
+        (wiz) => wiz.name !== payload
+      );
       state.wizard_1 = single;
+      state.characters = removeSelectedWizard;
     },
     setWizard_2: (state, { payload }) => {
       const single = state.characters.find((char) => char.name === payload);
+      const removeSelectedWizard = state.characters.filter(
+        (wiz) => wiz.name !== payload
+      );
       state.wizard_2 = single;
+      state.characters = removeSelectedWizard;
     },
     openModal: (state) => {
       const randomNumber = Math.floor(Math.random() * 2);
@@ -47,6 +57,8 @@ const battleSlice = createSlice({
     },
     closeModal: (state) => {
       state.isModalOpen = false;
+      state.wizard_1 = '';
+      state.wizard_2 = '';
     },
   },
   extraReducers: {

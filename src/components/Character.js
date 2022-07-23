@@ -8,6 +8,8 @@ const defaultImage =
 
 const Character = ({
   modal,
+  winner,
+  loser,
   image,
   name,
   patronus,
@@ -18,6 +20,10 @@ const Character = ({
 }) => {
   return (
     <Wrapper>
+      {winner && (
+        <h3 style={{ textAlign: 'center', color: 'green' }}>Winner</h3>
+      )}
+      {loser && <h3 style={{ textAlign: 'center', color: 'red' }}>Loser</h3>}
       <img src={image || defaultImage} alt='' />
 
       <p className='name'>

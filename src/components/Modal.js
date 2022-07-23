@@ -3,9 +3,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { AiOutlineClose } from 'react-icons/ai';
 import Character from './Character';
+import { closeModal } from '../feature/battle/battleSlice';
 const Modal = () => {
   const { isModalOpen, winner, loser } = useSelector((store) => store.battle);
-
+  const dispatch = useDispatch();
   useEffect(() => {
     if (isModalOpen) {
       document.documentElement.style.overflow = 'hidden';
@@ -16,14 +17,14 @@ const Modal = () => {
     <Wrapper>
       <div className={isModalOpen ? 'modal-container show' : 'modal-container'}>
         <div className='content'>
-          <button className='close-btn'>
+          <button className='close-btn' onClick={() => dispatch(closeModal())}>
             <AiOutlineClose className='icon' />
           </button>
 
           {winner && loser && (
             <div className='chars'>
-              <Character {...winner} modal />
-              <Character {...loser} modal />
+              <Character {...winner} winner modal />
+              <Character {...loser} loser modal />
             </div>
           )}
         </div>
@@ -36,14 +37,15 @@ const Wrapper = styled.article`
   .modal-container {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.1);
+    background: rgba(0, 0, 0, 0.3);
     display: grid;
     place-items: center;
     z-index: -3;
     opacity: 0;
 
     .content {
-      padding: 2rem;
+      padding: 3rem;
+      padding-top: 4rem;
       width: 90vw;
       height: 90vh;
       max-width: 60rem;
@@ -68,17 +70,33 @@ const Wrapper = styled.article`
     right: 2rem;
     background-color: transparent;
     border: none;
-    font-size: 2rem;
+    font-size: 2.7rem;
     color: red;
     transition: all 0.3s linear;
     z-index: 3;
   }
   .close-btn:hover {
     color: orange;
-    transform: rotateX('180deg');
+    transform: rotate(90deg);
   }
   .close-btn:hover .icon {
     transform: rotateX('360deg');
+  }
+  .info {
+    max-width: 18rem;
+    margin: 0 auto;
+  }
+  @media (min-width: 800px) {
+    .chars {
+      height: 100%;
+      display: grid;
+      align-items: center;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+    img {
+      height: 23rem;
+    }
   }
 `;
 
